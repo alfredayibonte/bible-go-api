@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   bible-ui:
     image: rkeplin/bible-angularjs-ui:latest
@@ -23,6 +23,7 @@ services:
       - DB_HOST=${DB_HOST}
       - DB_USER=${DB_USER}
       - DB_PASS=${DB_PASS}
+      - DB_ROOT_PASS=${DB_ROOT_PASS}
     depends_on:
       - bible-db
       - bible-es
@@ -30,7 +31,7 @@ services:
       - net1
 
   bible-db:
-    image: rkeplin/bible-mariadb:latest
+    image: alfredayibonte/bible-mariadb:latest
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASS}
